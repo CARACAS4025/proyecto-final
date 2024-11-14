@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Estudiantil - Inicio</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://tse2.mm.bing.net/th?id=OIP.y6rau1I0lQJoVssSPyGn2wHaHa&pid=Api&P=0&h=180" type="image/png">
+
+</head>
+<body>
+
+<!-- Menú de Navegación -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <a href="index.html">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.y6rau1I0lQJoVssSPyGn2wHaHa&pid=Api&P=0&h=180" class="me-3" alt="Ícono" style="width: 80px; height: 80px;">
+        </a>
+        <a class="navbar-brand" href="#">Comercio Estudiantil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
+            </ul>
+            <a href="carrito.html" class="btn btn-primary">Productos en el carrito (<span id="cart-count">0</span>)</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Portada -->
+
+<header class="bg-primary text-white text-center py-5">
+    <br>
+    <br>
+            <div class="text-center">
+            <h1>Bienvenidos a la tienda Estudiantil</h1>
+            <p class="lead">Encuentra productos estudiantiles a precios accesibles</p>
+        </div>
+
+</header>
+
+<!-- Sección de Presentación -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Bienvenido a Comercio Estudiantil</h2>
+            <p>Somos tu tienda en línea especializada en productos para estudiantes. Desde laptops, mochilas, hasta material escolar, tenemos todo lo que necesitas para facilitar tu vida académica.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.LL4-MmRNX_szyrKCMNazjwHaGH&pid=Api&P=0&h=180" class="img-fluid" alt="Comercio Estudiantil">
+        </div>
+    </div>
+</section>
+
+<!-- Productos Destacados -->
+<section class="container my-5">
+    <h2 class="text-center">Productos Destacados</h2>
+    <div class="row">
+        <!-- Producto 1 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/915S89xhGgL._SL1500_.jpg" class="card-img-top" alt="Laptop Lenovo">
+                <div class="card-body">
+                    <h5 class="card-title">Laptop Lenovo</h5>
+                    <p class="card-text">Laptop de 14 pulgadas, ideal para tus estudios. 8GB de RAM, 256GB SSD.</p>
+                    <p class="card-text">$799.99</p>
+                    <button onclick="añadirAlCarrito(1)" class="btn btn-success">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+        <!-- Añadir más productos aquí -->
+    </div>
+</section>
+
+<!-- Beneficios -->
+<section class="container my-5">
+    <h2 class="text-center">¿Por qué comprar con nosotros?</h2>
+    <ul>
+        <li><strong>Precios accesibles:</strong> Ofrecemos productos con precios especiales para estudiantes.</li>
+        <li><strong>Variedad:</strong> Encuentra todo lo que necesitas en un solo lugar: tecnología, material escolar, accesorios y más.</li>
+        <li><strong>Envíos rápidos:</strong> ¡Recibe tus productos directamente en tu casa o universidad en pocos días!</li>
+    </ul>
+</section>
+
+<!-- Testimonios -->
+<section class="container my-5">
+    <h2 class="text-center">Lo que dicen nuestros clientes</h2>
+    <div class="row">
+        <!-- Testimonio 1 -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">"Me encanta comprar en Comercio Estudiantil. Todo lo que necesito está aquí, ¡y los precios son buenísimos!" - Ana, estudiante de Medicina</p>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonio 2 -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">"Encontré la laptop que necesitaba para la universidad a un precio increíble. ¡Totalmente recomendados!" - Juan, estudiante de Ingeniería</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+<script>
+    // Función para obtener el carrito desde localStorage
+    function obtenerCarrito() {
+        return JSON.parse(localStorage.getItem("carrito")) || [];
+    }
+
+    // Función para actualizar el contador del carrito
+    function actualizarContadorCarrito() {
+        const carrito = obtenerCarrito();
+        // Actualiza el contador con el total de productos en el carrito
+        document.getElementById("cart-count").textContent = carrito.reduce((total, producto) => total + producto.cantidad, 0);
+    }
+
+    // Llamar a la función para actualizar el contador al cargar la página
+    actualizarContadorCarrito();
+</script>
+</body>
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+        <!-- Información de contacto -->
+        <p><strong>Correo:</strong> cormec@gmail.com</p>
+        <p><strong>Contacto:</strong> 3212345675</p>
+        <p><strong>NIT: :</strong>197637477-8</p>
+        
+        <!-- Enunciado con derechos reservados -->
+        <p>&copy; 2024 Comercio Estudiantil. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</html>

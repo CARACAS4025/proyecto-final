@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="https://tse2.mm.bing.net/th?id=OIP.y6rau1I0lQJoVssSPyGn2wHaHa&pid=Api&P=0&h=180" type="image/png">
+
+</head>
+<body>
+    <!-- Menú de Navegación -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <a href="index.html">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.y6rau1I0lQJoVssSPyGn2wHaHa&pid=Api&P=0&h=180" class="me-3" alt="Ícono" style="width: 80px; height: 80px;">
+        </a>
+        <a class="navbar-brand" href="index.html">Comercio Estudiantil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container mt-5">
+        <h2>Carrito de Compras</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items"></tbody>
+        </table>
+        <h3>Total: $<span id="cart-total">0.00</span></h3>
+        <button onclick="finalizarCompra()" class="btn btn-primary">Finalizar Compra</button>
+        
+        <a href="carrito.html" class="btn btn-primary">Carrito (<span id="cart-count">0</span>)</a>
+
+    </div>
+ 
+    <script src="script.js"></script>
+</body>
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+        <!-- Información de contacto -->
+        <p><strong>Correo:</strong> cormec@gmail.com</p>
+        <p><strong>Contacto:</strong> 3212345675</p>
+        <p><strong>NIT: :</strong>197637477-8</p>
+        
+        <!-- Enunciado con derechos reservados -->
+        <p>&copy; 2024 Comercio Estudiantil. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</html>
